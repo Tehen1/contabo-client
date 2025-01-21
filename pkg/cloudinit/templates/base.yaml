@@ -1,0 +1,32 @@
+#cloud-config
+# Base configuration for all instances
+hostname: {{.Hostname}}
+fqdn: {{.FQDN}}
+
+# Security settings
+disable_root: true
+ssh_pwauth: false
+
+# Package management
+package_update: {{.PackageUpdate}}
+package_upgrade: {{.PackageUpgrade}}
+packages:
+{{- range .Packages}}
+  - {{.}}
+{{- end}}
+
+# SSH keys
+ssh_authorized_keys:
+{{- range .SSHKeys}}
+  - {{.}}
+{{- end}}
+
+# Custom commands
+runcmd:
+{{- range .RunCmd}}
+  - {{.}}
+{{- end}}
+
+# System settings
+timezone: UTC
+final_message: "Cloud-Init has finished system configuration after $UPTIME seconds"

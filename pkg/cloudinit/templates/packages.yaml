@@ -1,0 +1,7 @@
+#cloud-config
+package_update: {{.PackageUpdate}}
+package_upgrade: {{.PackageUpgrade}}
+packages:
+{{- range .Packages}}
+  - {{.}}
+{{- end}}

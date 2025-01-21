@@ -1,0 +1,7 @@
+#cloud-config
+ssh_authorized_keys:
+  - {{.SSHKey}}
+
+# Configuration SSH sécurisée
+ssh_pwauth: false
+disable_root: true
