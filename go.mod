@@ -1,4 +1,4 @@
-module github.com/yourusername/contabo-client
+module github.com/tehen1/contabo-client.
 
 go 1.18
 
